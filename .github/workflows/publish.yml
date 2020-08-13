@@ -1,0 +1,42 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - release-*
+
+jobs:
+  pipeline:
+    if: github.event.base_ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: yarn
+
+      - name: Build
+        working-directory: packages/ink-command-router
+        run: yarn build
+
+      - name: Typecheck
+        working-directory: packages/ink-command-router
+        run: yarn typecheck
+
+      - name: Lint
+        working-directory: packages/ink-command-router
+        run: yarn lint
+
+      - name: Test
+        working-directory: packages/ink-command-router
+        run: yarn test --coverage
+
+      - name: Configure NPM for Publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
+      - name: Publish
+        working-directory: packages/ink-command-router
+        run: npm publish --tag latest --access public

@@ -1,0 +1,32 @@
+name: Integration
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: yarn
+
+      - name: Build
+        working-directory: packages/ink-command-router
+        run: yarn build
+
+      - name: Typecheck
+        working-directory: packages/ink-command-router
+        run: yarn typecheck
+
+      - name: Lint
+        working-directory: packages/ink-command-router
+        run: yarn lint
+
+      - name: Test
+        working-directory: packages/ink-command-router
+        run: yarn test --coverage
