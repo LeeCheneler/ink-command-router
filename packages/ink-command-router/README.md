@@ -1,6 +1,6 @@
 # ink-command-router
 
-![Integration](https://github.com/LeeCheneler/ink-command-router/workflows/Integration/badge.svg)
+![Integration](https://github.com/LeeCheneler/ink-command-router/workflows/Integration/badge.svg) ![Publish](https://github.com/LeeCheneler/ink-command-router/workflows/Publish/badge.svg)
 
 A simple [React](https://reactjs.org/) based router for [ink](https://github.com/vadimdemedes/ink) CLI commands.
 
