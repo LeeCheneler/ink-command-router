@@ -1,0 +1,41 @@
+{
+  "name": "ink-command-router",
+  "version": "1.0.0",
+  "description": "A simple React based router for ink CLIs.",
+  "private": false,
+  "repository": {
+    "url": "https://github.com/leecheneler/ink-command-router"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ink",
+    "cli",
+    "react",
+    "router",
+    "commands"
+  ],
+  "main": "dist/main.cjs.js",
+  "module": "dist/main.esm.js",
+  "types": "dist/main.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "ts-engine build --library --react",
+    "lint": "ts-engine lint --react",
+    "test": "ts-engine test --react",
+    "typecheck": "ts-engine typecheck --emit"
+  },
+  "devDependencies": {
+    "@ts-engine/cli": "^1.11.0",
+    "@types/minimist": "^1.2.0",
+    "@types/react": "^16.9.46",
+    "ink": "^3.0.3",
+    "ink-testing-library": "^2.0.1",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}
