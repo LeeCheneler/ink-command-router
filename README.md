@@ -67,6 +67,7 @@ You can then use the tool like so:
 > {
 >   "_": ["final-arg"],
 >   "hello":"world",
+>   "foo": "bar",
 >   "one":"two",
 >   "three":"four"
 > }
@@ -74,3 +75,7 @@ You can then use the tool like so:
 > tool this-does-not-exist
 > I should probably tell you how to use this tool... 😅
 ```
+
+## Argument parsing
+
+Arguments are parsed using [minimist](https://www.npmjs.com/package/minimist).
